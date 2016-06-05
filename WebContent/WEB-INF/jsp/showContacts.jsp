@@ -48,6 +48,8 @@
 		</c:if>				
 	</table>	
 	</center>
-		
+		<script type="text/javascript">
+			console.log('dasda');
+		</script>
 </body>
 </html>

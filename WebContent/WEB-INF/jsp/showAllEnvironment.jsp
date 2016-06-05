@@ -24,7 +24,57 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
 		<section id="main-content">
-			asdsaas
+			<section class="wrapper">
+				<div class="row mt">
+					<div class="col-md-12">
+						<div class="content-panel">
+							<h4>
+								<i class="fa fa-angle-right"></i> All Environments
+							</h4>
+							<hr>
+							<table class="table table-striped table-advance table-hover">
+
+
+								<thead>
+									<tr>
+										<th><i class="fa fa-bullhorn"></i> Env. Name</th>
+										<th class="hidden-phone"><i class="fa fa-question-circle"></i>
+											Location</th>
+										<th><i class="fa fa-bookmark"></i> Product</th>
+										<th><i class=" fa fa-edit"></i> Status</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="environment" items="${allEnvironment}">
+										<tr>
+											<td><a href="basic_table.html#">${environment.envName}</a></td>
+											<td class="hidden-phone">${environment.envUrl}</td>
+											<td>12000.00$</td>
+											<td><span class="label label-info label-mini">Running</span></td>
+											<td>
+												<button class="btn btn-success btn-xs">
+													<i class="fa fa-check"></i>
+												</button>
+												<button class="btn btn-primary btn-xs" onclick="location.href='${baseUrl}/getEnvironmentById/${environment.id}';">
+													<i class="fa fa-pencil"></i>
+												</button>
+												<button class="btn btn-danger btn-xs">
+													<i class="fa fa-trash-o "></i>
+												</button>
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						<!-- /content-panel -->
+					</div>
+					<!-- /col-md-12 -->
+				</div>
+				<!-- /row -->
+
+			</section>
 		</section>
 
 		<!--main content end-->
@@ -58,6 +108,8 @@
 	</script>
 
 	<script type="application/javascript">
+		
+		
 		
 		
 		
@@ -96,6 +148,8 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     
+	
+	
 	
 	
 	

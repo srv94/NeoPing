@@ -51,6 +51,9 @@ public class EnvironmentDTO {
 		this.dbUser = dbUser;
 		this.dbPass = dbPass;
 	}
+	public int getId() {
+		return id;
+	}
 	public String getKeyId() {
 		return keyId;
 	}

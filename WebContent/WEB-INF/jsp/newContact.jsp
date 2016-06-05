@@ -13,7 +13,7 @@
 	</tr>
 	<tr valign="top" align="center">
     <td align="center">
- 		<form:form action="saveContact.do" method="post" commandName="newContact">
+ 		<form:form action="addNewEnvironment" method="post" commandName="newContact">
 	    	
 				<table width="500" style="border-collapse: collapse;" border="0" bordercolor="#006699" cellspacing="2" cellpadding="2">	
 					<tr>

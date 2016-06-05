@@ -11,14 +11,14 @@
 			<h5 class="centered">Marcel Newman</h5>
 
 			<li id="dashboard_sidebar" class="mt"><a class=""
-				href="dashboard"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+				href="${baseUrl}/dashboard"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 			</a></li>
 
-			<li class="all_env_sidebar"><a href="showAll"> <i
+			<li class="all_env_sidebar"><a href="${baseUrl}/showAll"> <i
 					class="fa fa-cogs"></i> <span>All Environment</span>
 			</a></li>
 			<li id="add_environment_sidebar" class="sub-menu"><a
-				href="create"> <i class="fa fa-desktop"></i> <span>Add
+				href="${baseUrl}/create"> <i class="fa fa-desktop"></i> <span>Add
 						Environment</span>
 			</a></li>
 			<li class="sub-menu"><a href="javascript:;"> <i
