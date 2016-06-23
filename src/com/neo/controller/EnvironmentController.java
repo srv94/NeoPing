@@ -1,5 +1,6 @@
 package com.neo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +10,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neo.dto.EnvironmentDTO;
 import com.neo.service.EnvironmentService;
-import com.sivalabs.contacts.Contact;
+import com.neo.service.PingUtil;
 
 @Controller
 public class EnvironmentController {
 
 	private static final String CREATE_ENVIRONMENT_PAGE = "createEnvironment";
 	private static final String SHOW_ALL_ENVIRONMENT_PAGE = "showAllEnvironment";
-	private static final String REDIRECT_TO_SHOW_ALL_ENVIRONMENT_PAGE = "redirect:showAll"; 
+	private static final String REDIRECT_TO_SHOW_ALL_ENVIRONMENT_PAGE = "redirect:showAll";
+	private static final String REDIRECT_TO_SHOW_ALL_ENVIRONMENT_PAGE2 = "redirect:/showAll"; 
 	
 	@Autowired
 	EnvironmentService environmentService;
@@ -57,6 +60,30 @@ public class EnvironmentController {
 
 	}
 	
+	@RequestMapping(value="/deleteEnvironmentById/{id}", method=RequestMethod.GET)
+    public String deleteEnvironmentById(@PathVariable("id") int id) {
+        
+        environmentService.deleteEnvironmentById(id);
+        return REDIRECT_TO_SHOW_ALL_ENVIRONMENT_PAGE2;
+
+    }
+	
+	@RequestMapping(value="/checkStatus", method=RequestMethod.GET)
+    @ResponseBody public List<Boolean> checkStatus() {
+        List<Boolean> result = new ArrayList<Boolean>();
+        for(EnvironmentDTO dto : environmentService.getAllEnvironment()){
+            result.add(PingUtil.checkUrl("http://"+dto.getEnvUrl()+"/finnone-webapp/app/auth/getCaptcha"));
+        }
+        return result;
+
+    }
+    @RequestMapping(value="/environmentDetails/{id}", method=RequestMethod.GET)
+    public String showEnvironmentDetails(@PathVariable int id, ModelMap map) {
+        EnvironmentDTO result = environmentService.getEnvironmentById(id);
+        map.put("environment", result);
+        return "ViewEnvironmentDetails";
+
+    }
 	
 	
 

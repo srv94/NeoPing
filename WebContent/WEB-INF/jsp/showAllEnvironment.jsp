@@ -40,27 +40,30 @@
 										<th><i class="fa fa-bullhorn"></i> Env. Name</th>
 										<th class="hidden-phone"><i class="fa fa-question-circle"></i>
 											Location</th>
-										<th><i class="fa fa-bookmark"></i> Product</th>
+										<th><i class="fa fa-bookmark"></i> Revision numbers</th>
 										<th><i class=" fa fa-edit"></i> Status</th>
 										<th></th>
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="environment" items="${allEnvironment}">
+									<c:forEach var="environment" items="${allEnvironment}" varStatus="i" begin="0" step="1">
 										<tr>
-											<td><a href="basic_table.html#">${environment.envName}</a></td>
+											<td><a href="http://${environment.envUrl}/finnone-webapp/app/auth/login" target = "_blank">${environment.envName}</a></td>
 											<td class="hidden-phone">${environment.envUrl}</td>
-											<td>12000.00$</td>
-											<td><span class="label label-info label-mini">Running</span></td>
-											<td>
+											<td>${ environment.revisionNumber}</td>
+											<td><span id="status_${i.index}" class="label label-info label-mini">Running</span></td>
+											<td align="right">
 												<button class="btn btn-success btn-xs">
 													<i class="fa fa-check"></i>
 												</button>
 												<button class="btn btn-primary btn-xs" onclick="location.href='${baseUrl}/getEnvironmentById/${environment.id}';">
 													<i class="fa fa-pencil"></i>
 												</button>
-												<button class="btn btn-danger btn-xs">
+												<button class="btn btn-danger btn-xs" onclick="location.href='${baseUrl}/deleteEnvironmentById/${environment.id}';">
 													<i class="fa fa-trash-o "></i>
+												</button>
+												<button class="btn btn-success btn-xs" onclick="location.href='${baseUrl}/environmentDetails/${environment.id}';">
+													<i class="fa fa-trash-o "></i> Details
 												</button>
 											</td>
 										</tr>
@@ -155,6 +158,6 @@
 	
 	</script>
 
-
+<script src="<c:url value="/assets/js/other/showAllEnvironment.js" />"></script>
 </body>
 </html>

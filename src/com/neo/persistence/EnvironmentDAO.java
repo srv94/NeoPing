@@ -7,7 +7,7 @@ import com.neo.dto.EnvironmentDTO;
 public interface EnvironmentDAO {
 	
 	public EnvironmentDTO getById(int id);
-	public List<EnvironmentDTO> searchEnvironments(String search);
+	public List<EnvironmentDTO> searchEnvironments(String col,String search);
 	public List<EnvironmentDTO> getAllEnvironments();
 	public int saveEnvironment(EnvironmentDTO environmentDTO);
 	public void updateEnvironment(EnvironmentDTO environmentDTO);

@@ -23,9 +23,9 @@ public class EnvironmentDAOImp implements EnvironmentDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<EnvironmentDTO> searchEnvironments(String search) {
+	public List<EnvironmentDTO> searchEnvironments(String col,String search) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(EnvironmentDTO.class);
-		criteria.add(Restrictions.ilike("name", search+"%"));
+		criteria.add(Restrictions.ilike(col, "%" +search +"%"));
 		return criteria.list();
 	}
 

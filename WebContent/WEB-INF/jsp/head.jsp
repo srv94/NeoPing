@@ -25,7 +25,9 @@
 <link href="<c:url value="/assets/css/style.css" />" rel="stylesheet">
 <link href="<c:url value="/assets/css/style-responsive.css" />"
 	rel="stylesheet">
-
+<script type="text/javascript">
+var baseUrl = '${baseUrl}';
+</script>
 <script src="<c:url value="/assets/js/chart-master/Chart.js" />"></script>
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

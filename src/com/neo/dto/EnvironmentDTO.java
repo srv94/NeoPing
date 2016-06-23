@@ -19,6 +19,7 @@ public class EnvironmentDTO {
 	@Column private String keyId;
 	@Column private String envName;
 	@Column private String envUrl;
+	@Column private String revisionNumber;
 	@Column private String envLogUrl;
 	@Column private String envLogUser;
 	@Column private String envLogPass;
@@ -28,8 +29,9 @@ public class EnvironmentDTO {
 	@Column private String dbUrl;
 	@Column private String dbUser;
 	@Column private String dbPass;
-	
-	public EnvironmentDTO() {
+	@Column private String dbSchema;
+
+    public EnvironmentDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -56,6 +58,9 @@ public class EnvironmentDTO {
 	}
 	public String getKeyId() {
 		return keyId;
+	}
+	public void setId(int id){
+	    this.id=id;
 	}
 	public void setKeyId(String keyId) {
 		this.keyId = keyId;
@@ -126,6 +131,18 @@ public class EnvironmentDTO {
 	public void setDbPass(String dbPass) {
 		this.dbPass = dbPass;
 	}
+	public String getRevisionNumber() {
+		return revisionNumber;
+	}
+	public void setRevisionNumber(String revisionNumber) {
+		this.revisionNumber = revisionNumber;
+	}
+	public String getDbSchema() {
+        return dbSchema;
+    }
+    public void setDbSchema(String dbSchema) {
+        this.dbSchema = dbSchema;
+    }
 	@Override
 	public String toString() {
 		return "EnvironmentDTO [keyId=" + keyId + ", envName=" + envName
