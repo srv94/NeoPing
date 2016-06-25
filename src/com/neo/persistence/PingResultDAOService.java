@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.neo.dto.EnvironmentDTO;
+import com.neo.dto.PingResult;
 import com.neo.dto.PingResultDTO;
 
 @Repository
@@ -40,6 +42,8 @@ public class PingResultDAOService implements PingResultDAO{
 
     @Override
     public int saveResult(PingResultDTO pingResultDTO) {
+    	sessionFactory.getCurrentSession().save(pingResultDTO);
+    	sessionFactory.getCurrentSession().save(new PingResult(pingResultDTO.getKeyid(),pingResultDTO.getResult(),pingResultDTO.getTimestamp()));
         return (Integer) sessionFactory.getCurrentSession().save(pingResultDTO);
     }
 
@@ -53,6 +57,18 @@ public class PingResultDAOService implements PingResultDAO{
     public void deleteResult(int id) {
         PingResultDTO pingResultDTO = getById(id);
         sessionFactory.getCurrentSession().delete(pingResultDTO);      
+    }
+    
+    @Override
+    public void deleteOldResult() {
+    	sessionFactory.getCurrentSession().createQuery("delete from PingResult").executeUpdate();
+    }
+    
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<PingResult> getAllStatus() {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(PingResult.class);
+        return criteria.list();
     }
     
 

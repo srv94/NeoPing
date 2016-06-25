@@ -5,9 +5,9 @@
 			data-original-title="Toggle Navigation"></div>
 	</div>
 	<!--logo start-->
-	<a href="index.html" class="logo"><b>DASHGUM FREE</b></a>
+	<a href="${baseUrl}/dashboard" class="logo"><b>Neo Ping Monitor</b></a>
 	<!--logo end-->
-	<div class="nav notify-row" id="top_menu">
+	<%-- <div class="nav notify-row" id="top_menu">
 		<!--  notification start -->
 		<ul class="nav top-menu">
 			<!-- settings start -->
@@ -119,6 +119,6 @@
 		<ul class="nav pull-right top-menu">
 			<li><a class="logout" href="login.html">Logout</a></li>
 		</ul>
-	</div>
+	</div> --%>
 </header>
 <!--header end-->

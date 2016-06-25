@@ -52,7 +52,7 @@
 									<label class="col-sm-2 col-sm-2 control-label">Environment
 										Url</label>
 									<div class="col-sm-10">
-										<form:input path="envUrl" placeholder="Enter Environment Url Ex.(***.***.***.***:****) No htttp or www"
+										<form:input path="envUrl" placeholder="Enter Environment Url ( Expl. For CAS - 10.1.61.133:6688/finnone-webapp and for LMS - 10.1.60.247:5599/finnone-LMS) No htttp or www"
 											type="text" class="form-control" />
 									</div>
 								</div>

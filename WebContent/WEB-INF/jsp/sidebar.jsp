@@ -4,11 +4,11 @@
 		<ul class="sidebar-menu" id="nav-accordion">
 
 			<p class="centered">
-				<a href="profile.html"><img
+				<a href=""><img
 					src="<c:url value="/assets/img/ui-sam.jpg" />" class="img-circle"
 					width="60"></a>
 			</p>
-			<h5 class="centered">Marcel Newman</h5>
+			<h5 class="centered">CAS TEAM</h5>
 
 			<li id="dashboard_sidebar" class="mt"><a class=""
 				href="${baseUrl}/dashboard"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -21,7 +21,7 @@
 				href="${baseUrl}/create"> <i class="fa fa-desktop"></i> <span>Add
 						Environment</span>
 			</a></li>
-			<li class="sub-menu"><a href="javascript:;"> <i
+			<!-- <li class="sub-menu"><a href="javascript:;"> <i
 					class="fa fa-book"></i> <span>Extra Pages</span>
 			</a>
 				<ul class="sub">
@@ -48,7 +48,7 @@
 				<ul class="sub">
 					<li><a href="morris.html">Morris</a></li>
 					<li><a href="chartjs.html">Chartjs</a></li>
-				</ul></li>
+				</ul></li> -->
 
 		</ul>
 		<!-- sidebar menu end-->

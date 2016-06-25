@@ -22,14 +22,15 @@ public class PingTask {
     @Autowired
     PingResultDAO pingResultDao;
     
-    @Scheduled(fixedDelay = 60000000)
+    @Scheduled(fixedDelay = 60000)
     public void checkUrlStaus()
     {
         java.util.Date date= new java.util.Date();
         Timestamp time = new Timestamp(date.getTime());
+        pingResultDao.deleteOldResult();
         for(EnvironmentDTO environmentDTO : environmentService.getAllEnvironment()){
-            PingResultDTO resultDTO = new PingResultDTO(environmentDTO.getKeyId(),time);
-            resultDTO.setResult(PingUtil.checkUrl("http://"+environmentDTO.getEnvUrl()+"/finnone-webapp/app/auth/getCaptcha?1465279781280"));
+            PingResultDTO resultDTO = new PingResultDTO(environmentDTO.getId(),time);
+            resultDTO.setResult(PingUtil.checkUrl("http://"+environmentDTO.getEnvUrl()+"/app/auth/getCaptcha?1465279781280"));
             pingResultDao.saveResult(resultDTO);
         }
         

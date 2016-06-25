@@ -25,9 +25,95 @@
       *********************************************************************************************************************************************************** -->
 		<section id="main-content">
 			<section class="wrapper">
-				<h3>
-					<i class="fa fa-angle-right"></i> ${environment.envName} Details
-				</h3>
+				<div class="row mt">
+          		<div class="col-lg-12">
+                  <div class="form-panel">
+                  	  <h4 class="mb"><i class="fa fa-angle-right"></i> Environment Details</h4>
+                      <form method="get" class="form-horizontal style-form">
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Environment Name</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envName}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Environment Url</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envUrl}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Revision Number</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.revisionNumber}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Log Host</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envLogUrl}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Log User Name</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envLogUser}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Log Password</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envLogPass}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Environment Log Path</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envLog}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">War Path</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envWar}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">Server Log Path</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.envServerLog}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">DB Host</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.dbUrl}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">DB User Name</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.dbUser}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">DB Password</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.dbPass}</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-lg-2 col-sm-2 control-label">DB Schema</label>
+                              <div class="col-lg-10">
+                                  <p class="form-control-static">${environment.dbSchema}</p>
+                              </div>
+                          </div>
+                          
+                          
+                      </form>
+                  </div>
+          		</div><!-- col-lg-12-->      	
+          	</div>
 
 			</section>
 		</section>
@@ -70,6 +156,7 @@
 		
 		
 		
+		
         $(document).ready(function () {
         
         });
@@ -82,6 +169,7 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     
+	
 	
 	
 	
