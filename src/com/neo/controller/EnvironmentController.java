@@ -3,6 +3,8 @@ package com.neo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,8 +38,9 @@ public class EnvironmentController {
 	}
 	
 	@RequestMapping(value="/saveEnvironment", method=RequestMethod.POST)
-	public String addNewEnvironment(@ModelAttribute("environment")EnvironmentDTO environmentDTO){
+	public String addNewEnvironment(@ModelAttribute("environment")EnvironmentDTO environmentDTO, HttpServletRequest request){
 		
+		environmentDTO.setSyncUrl(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/api/getById/");
 		environmentService.addNewEnvironment(environmentDTO);
 		return REDIRECT_TO_SHOW_ALL_ENVIRONMENT_PAGE;
 	}

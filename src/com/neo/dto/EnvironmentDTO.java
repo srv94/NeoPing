@@ -7,31 +7,41 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 
 @Entity
 @Table(name="ENVIRONMENT")
 public class EnvironmentDTO {
 	
 	@Id
+	@JsonProperty("key")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@Column private String keyId;
-	@Column private String envName;
-	@Column private String envUrl;
-	@Column private String revisionNumber;
-	@Column private String envLogUrl;
-	@Column private String envLogUser;
-	@Column private String envLogPass;
-	@Column private String envLog;
-	@Column private String envWar;
-	@Column private String envServerLog;
-	@Column private String dbUrl;
-	@Column private String dbUser;
-	@Column private String dbPass;
-	@Column private String dbSchema;
+	@JsonProperty("envName") @Column private String envName;
+	@JsonProperty("envUrl") @Column private String envUrl;
+	@JsonProperty("revisionNumber") @Column private String revisionNumber;
+	@JsonProperty("envLogUrl") @Column private String envLogUrl;
+	@JsonProperty("envLogUser") @Column private String envLogUser;
+	@JsonProperty("envLogPass") @Column private String envLogPass;
+	@JsonProperty("envLog") @Column private String envLog;
+	@JsonProperty("envWar") @Column private String envWar;
+	@JsonProperty("envServerLog") @Column private String envServerLog;
+	@JsonProperty("dbUrl") @Column private String dbUrl;
+	@JsonProperty("dbUser") @Column private String dbUser;
+	@JsonProperty("dbPass") @Column private String dbPass;
+	@JsonProperty("dbSchema") @Column private String dbSchema;
+	@JsonProperty("syncUrl") @Column private String syncUrl;
 
-    public EnvironmentDTO() {
+    public String getSyncUrl() {
+		return syncUrl;
+	}
+	public void setSyncUrl(String syncUrl) {
+		this.syncUrl = syncUrl;
+	}
+	public EnvironmentDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
