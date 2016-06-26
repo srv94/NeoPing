@@ -2,6 +2,7 @@ package com.neo.controller;
 
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -47,6 +48,11 @@ public class ApiController {
 	@ResponseBody
 	public List<PingResult> getEnvironmentStatus() {
 		return pingResultDAO.getAllStatus();
+	}
+	@RequestMapping(value = "/getStatusById/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public PingResult getEnvironmentStatusById(@PathVariable("id") int id) {
+		return pingResultDAO.getAllStatusById(id);
 	}
 
 }

@@ -70,6 +70,11 @@ public class PingResultDAOService implements PingResultDAO{
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(PingResult.class);
         return criteria.list();
     }
+
+	@Override
+	public PingResult getAllStatusById(int id) {
+		return (PingResult) sessionFactory.getCurrentSession().get(PingResult.class, id);
+	}
     
 
 }

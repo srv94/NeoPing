@@ -15,5 +15,6 @@ public interface PingResultDAO {
     public void deleteResult(int id);
 	void deleteOldResult();
 	List<PingResult> getAllStatus();
+	public PingResult getAllStatusById(int id);
 
 }
