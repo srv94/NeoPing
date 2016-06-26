@@ -40,7 +40,7 @@ public class EnvironmentController {
 	@RequestMapping(value="/saveEnvironment", method=RequestMethod.POST)
 	public String addNewEnvironment(@ModelAttribute("environment")EnvironmentDTO environmentDTO, HttpServletRequest request){
 		
-		environmentDTO.setSyncUrl(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/api/getById/");
+		environmentDTO.setSyncUrl(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/api/getStatusById/");
 		environmentService.addNewEnvironment(environmentDTO);
 		return REDIRECT_TO_SHOW_ALL_ENVIRONMENT_PAGE;
 	}
