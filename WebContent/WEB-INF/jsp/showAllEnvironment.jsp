@@ -159,7 +159,7 @@
 		function getBody(data){
 			var body = 'The Smoke Conventional Application is up and running with Revision #  ' + data.revisionNumber +'.\n\n' ;
 			body += 'Environment Name : ' + data.envName + '\n';
-			body += 'Environment Location : ' + data.envUrl + '\n';
+			body += 'Environment Location : http://' + data.envUrl + '/app/auth/login\n';
 			body += 'Revision Number : ' + data.revisionNumber + '\n\n\n\n';
 			body += 'Log Host : ' + data.envLogUrl + '\n';
 			body += 'Log User Name : ' + data.envLogUser + '\n';

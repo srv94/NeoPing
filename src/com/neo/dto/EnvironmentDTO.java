@@ -20,6 +20,7 @@ public class EnvironmentDTO {
 	private int id;
 	
 	@Column private String keyId;
+	@JsonProperty("environmentType") @Column private String environmentType;
 	@JsonProperty("envName") @Column private String envName;
 	@JsonProperty("envUrl") @Column private String envUrl;
 	@JsonProperty("revisionNumber") @Column private String revisionNumber;
@@ -153,16 +154,25 @@ public class EnvironmentDTO {
     public void setDbSchema(String dbSchema) {
         this.dbSchema = dbSchema;
     }
+    public String getEnvironmentType() {
+		return environmentType;
+	}
+	public void setEnvironmentType(String environmentType) {
+		this.environmentType = environmentType;
+	}
 	@Override
 	public String toString() {
-		return "EnvironmentDTO [keyId=" + keyId + ", envName=" + envName
-				+ ", envUrl=" + envUrl + ", envLogUrl=" + envLogUrl
-				+ ", envLogUser=" + envLogUser + ", envLogPass=" + envLogPass
-				+ ", envLog=" + envLog + ", envWar=" + envWar
-				+ ", envServerLog=" + envServerLog + ", dbUrl=" + dbUrl
-				+ ", dbUser=" + dbUser + ", dbPass=" + dbPass + "]";
+		return "EnvironmentDTO [id=" + id + ", keyId=" + keyId
+				+ ", environmentType=" + environmentType + ", envName="
+				+ envName + ", envUrl=" + envUrl + ", revisionNumber="
+				+ revisionNumber + ", envLogUrl=" + envLogUrl + ", envLogUser="
+				+ envLogUser + ", envLogPass=" + envLogPass + ", envLog="
+				+ envLog + ", envWar=" + envWar + ", envServerLog="
+				+ envServerLog + ", dbUrl=" + dbUrl + ", dbUser=" + dbUser
+				+ ", dbPass=" + dbPass + ", dbSchema=" + dbSchema
+				+ ", syncUrl=" + syncUrl + "]";
 	}
+
 	
-	// TODO improve this.....
 
 }

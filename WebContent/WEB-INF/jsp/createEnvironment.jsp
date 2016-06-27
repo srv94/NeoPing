@@ -43,16 +43,30 @@
 								<form:input path="id" type="hidden" class="form-control" />
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">Environment
+										Type</label>
+									<div class="col-sm-10">
+										<form:radiobutton path="environmentType" value="CAS" />
+										CAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:radiobutton path="environmentType" value="LMS" />
+										LMS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<form:radiobutton path="environmentType" value="INTEGRATION" />
+										INTEGRATION
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-2 control-label">Environment
 										Name</label>
 									<div class="col-sm-10">
-										<form:input path="envName" type="text" class="form-control" placeholder="Enter Environment Name"/>
+										<form:input path="envName" type="text" class="form-control"
+											placeholder="Enter Environment Name" />
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">Environment
 										Url</label>
 									<div class="col-sm-10">
-										<form:input path="envUrl" placeholder="Enter Environment Url ( Expl. For CAS - 10.1.61.133:6688/finnone-webapp and for LMS - 10.1.60.247:5599/finnone-LMS) No htttp or www"
+										<form:input path="envUrl"
+											placeholder="Enter Environment Url ( Expl. For CAS - 10.1.61.133:6688/finnone-webapp and for LMS - 10.1.60.247:5599/finnone-LMS) No htttp or www"
 											type="text" class="form-control" />
 									</div>
 								</div>
@@ -60,8 +74,9 @@
 									<label class="col-sm-2 col-sm-2 control-label">Revision
 										Number</label>
 									<div class="col-sm-10">
-										<form:input path="revisionNumber" placeholder="Enter Current Revision Number"
-											type="text" class="form-control" />
+										<form:input path="revisionNumber"
+											placeholder="Enter Current Revision Number" type="text"
+											class="form-control" />
 									</div>
 								</div>
 								<div class="form-group">
@@ -69,79 +84,94 @@
 										Details :</label>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Log Host Name</label>
+									<label class="col-sm-2 col-sm-2 control-label">Log Host
+										Name</label>
 									<div class="col-sm-10">
-										<form:input path="envLogUrl" type="text" class="form-control" placeholder="Enter log host name"/>
+										<form:input path="envLogUrl" type="text" class="form-control"
+											placeholder="Enter log host name" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Log User Name</label>
+									<label class="col-sm-2 col-sm-2 control-label">Log User
+										Name</label>
 									<div class="col-sm-10">
-										<form:input path="envLogUser" type="text" class="form-control" placeholder="Enter Logs User Name"/>
+										<form:input path="envLogUser" type="text" class="form-control"
+											placeholder="Enter Logs User Name" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Log Password</label>
+									<label class="col-sm-2 col-sm-2 control-label">Log
+										Password</label>
 									<div class="col-sm-10">
-										<form:input path="envLogPass" type="text" class="form-control" placeholder="Enter Log Password"/>
+										<form:input path="envLogPass" type="text" class="form-control"
+											placeholder="Enter Log Password" />
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">Log Path</label>
 									<div class="col-sm-10">
-										<form:input path="envLog" type="text" class="form-control" placeholder="Enter Log Path"/>
+										<form:input path="envLog" type="text" class="form-control"
+											placeholder="Enter Log Path" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">War Location</label>
+									<label class="col-sm-2 col-sm-2 control-label">War
+										Location</label>
 									<div class="col-sm-10">
-										<form:input path="envWar" type="text" class="form-control" placeholder="Enter WAR Location"/>
+										<form:input path="envWar" type="text" class="form-control"
+											placeholder="Enter WAR Location" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-2 col-sm-2 control-label">Server Log Path</label>
+									<label class="col-sm-2 col-sm-2 control-label">Server
+										Log Path</label>
 									<div class="col-sm-10">
-										<form:input path="envServerLog" type="text" class="form-control" placeholder="Enter Server Log path"/>
+										<form:input path="envServerLog" type="text"
+											class="form-control" placeholder="Enter Server Log path" />
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">DB
-                Details :</label>
+										Details :</label>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">DB Host</label>
 									<div class="col-sm-10">
-										<form:input path="dbUrl" type="text" class="form-control" placeholder="DB server Host URL"/>
+										<form:input path="dbUrl" type="text" class="form-control"
+											placeholder="DB server Host URL" />
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">User
 										Name</label>
 									<div class="col-sm-10">
-										<form:input path="dbUser" type="text" class="form-control" placeholder="DB server User Name"/>
+										<form:input path="dbUser" type="text" class="form-control"
+											placeholder="DB server User Name" />
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">User
 										Password</label>
 									<div class="col-sm-10">
-										<form:input path="dbPass" type="text" class="form-control" placeholder="DB Server Password"/>
+										<form:input path="dbPass" type="text" class="form-control"
+											placeholder="DB Server Password" />
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">DB
 										Schema</label>
 									<div class="col-sm-10">
-										<form:input path="dbSchema" type="text" class="form-control" placeholder="DB Schema Name"/>
+										<form:input path="dbSchema" type="text" class="form-control"
+											placeholder="DB Schema Name" />
 									</div>
 								</div>
 								<div class="form-group">
-								<label class="col-sm-0"></label>
-								<div class="col-sm-12">
-									<button type="submit"
-										class="btn btn-info btn-default btn-block" id="addButton">Add
-										New Env</button>
-								</div>
+									<label class="col-sm-0"></label>
+									<div class="col-sm-12">
+										<button type="submit"
+											class="btn btn-info btn-default btn-block" id="addButton">Add
+											New Env</button>
+									</div>
 								</div>
 
 							</form:form>
@@ -189,6 +219,7 @@
 		
 		
 		
+		
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
             $("#date-popover").hide();
@@ -223,6 +254,7 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     
+	
 	
 	
 	
