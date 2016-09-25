@@ -20,6 +20,8 @@ public class PingResultDTO {
     @Column int Keyid;
     @Column boolean result;
     @Column Timestamp timestamp;
+    @Column String envType;
+    
     public PingResultDTO() {
         super();
         // TODO Auto-generated constructor stub
@@ -56,7 +58,14 @@ public class PingResultDTO {
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
-    @Override
+    
+    public String getEnvType() {
+		return envType;
+	}
+	public void setEnvType(String envType) {
+		this.envType = envType;
+	}
+	@Override
     public String toString() {
         return "PingResultDTO [id=" + id + ", Keyid=" + Keyid + ", result=" + result + ", timestamp=" + timestamp + "]";
     }

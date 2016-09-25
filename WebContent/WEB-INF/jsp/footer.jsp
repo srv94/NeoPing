@@ -1,6 +1,6 @@
 <footer class="site-footer">
 	<div class="text-center">
-		2016 - Powered By NEO-CAS <a href="index.html#" class="go-top"> <i
+		2016 - Powered By NEO-CAS <a href="#" class="go-top"> <i
 			class="fa fa-angle-up"></i>
 		</a>
 	</div>

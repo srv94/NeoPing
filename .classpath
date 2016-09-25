@@ -9,7 +9,7 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/antlr-2.7.7.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-dbcp2-2.0.jar"/>
@@ -48,5 +48,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-4.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-webmvc-4.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-apis-1.0.b2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/com.jcraft.jsch-all-0.1.42.w1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

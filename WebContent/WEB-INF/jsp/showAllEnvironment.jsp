@@ -29,7 +29,7 @@
 					<div class="col-md-12">
 						<div class="content-panel">
 							<h4>
-								<i class="fa fa-angle-right"></i> All Environments
+								<i class="fa fa-angle-right"></i> CAS Environments
 							</h4>
 							<hr>
 							<table class="table table-striped table-advance table-hover">
@@ -46,7 +46,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach var="environment" items="${allEnvironment}"
+									<c:forEach var="environment" items="${casEnvironment}"
 										varStatus="i" begin="0" step="1">
 										<tr>
 											<td><a
@@ -64,9 +64,57 @@
 													onclick="location.href='${baseUrl}/getEnvironmentById/${environment.id}';">
 													<i class="fa fa-pencil"></i> Edit
 												</button>
+												<button class="btn btn-success btn-xs"
+													onclick="location.href='${baseUrl}/environmentDetails/${environment.id}';">
+													<i class="fa fa-info "></i> Details
+												</button>
+												<button class="btn btn-info btn-xs" onclick="share(${environment.id})">
+													<i class="fa fa-share-alt "></i> Share
+												</button>
 												<button class="btn btn-danger btn-xs"
-													onclick="location.href='${baseUrl}/deleteEnvironmentById/${environment.id}';">
+													onclick="location.href='${baseUrl}/deleteEnvironmentById/${environment.id}';" disabled="true">
 													<i class="fa fa-trash-o "></i> Delete
+												</button>
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<h4>
+								<i class="fa fa-angle-right"></i> LMS Environments
+							</h4>
+							<hr>
+							<table class="table table-striped table-advance table-hover">
+
+
+								<thead>
+									<tr>
+										<th><i class="fa fa-bullhorn"></i> Env. Name</th>
+										<th class="hidden-phone"><i class="fa fa-question-circle"></i>
+											Location</th>
+										<th><i class="fa fa-bookmark"></i> Revision numbers</th>
+										<th><i class=" fa fa-edit"></i> Status</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="environment" items="${lmsEnvironment}"
+										varStatus="i" begin="0" step="1">
+										<tr>
+											<td><a
+												href="http://${environment.envUrl}/app/auth/login"
+												target="_blank">${environment.envName}</a></td>
+											<td class="hidden-phone">${environment.envUrl}</td>
+											<td>${ environment.revisionNumber}</td>
+											<td><span id="status_${environment.id}"
+												class="label label-info label-mini">Running</span></td>
+											<td align="right">
+												<button class="btn btn-success btn-xs">
+													<i class="fa fa-check"></i>
+												</button>
+												<button class="btn btn-primary btn-xs"
+													onclick="location.href='${baseUrl}/getEnvironmentById/${environment.id}';">
+													<i class="fa fa-pencil"></i> Edit
 												</button>
 												<button class="btn btn-success btn-xs"
 													onclick="location.href='${baseUrl}/environmentDetails/${environment.id}';">
@@ -74,6 +122,62 @@
 												</button>
 												<button class="btn btn-info btn-xs" onclick="share(${environment.id})">
 													<i class="fa fa-share-alt "></i> Share
+												</button>
+												<button class="btn btn-danger btn-xs"
+													onclick="location.href='${baseUrl}/deleteEnvironmentById/${environment.id}';" disabled="true">
+													<i class="fa fa-trash-o "></i> Delete
+												</button>
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<h4>
+								<i class="fa fa-angle-right"></i> Integration Environments
+							</h4>
+							<hr>
+							<table class="table table-striped table-advance table-hover">
+
+
+								<thead>
+									<tr>
+										<th><i class="fa fa-bullhorn"></i> Env. Name</th>
+										<th class="hidden-phone"><i class="fa fa-question-circle"></i>
+											Location</th>
+										<th><i class="fa fa-bookmark"></i> Revision numbers</th>
+										<th><i class=" fa fa-edit"></i> Status</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="environment" items="${intEnvironment}"
+										varStatus="i" begin="0" step="1">
+										<tr>
+											<td><a
+												href="http://${environment.envUrl}/app/auth/login"
+												target="_blank">${environment.envName}</a></td>
+											<td class="hidden-phone">${environment.envUrl}</td>
+											<td>${ environment.revisionNumber}</td>
+											<td><span id="status_${environment.id}"
+												class="label label-info label-mini">Running</span></td>
+											<td align="right">
+												<button class="btn btn-success btn-xs">
+													<i class="fa fa-check"></i>
+												</button>
+												<button class="btn btn-primary btn-xs"
+													onclick="location.href='${baseUrl}/getEnvironmentById/${environment.id}';">
+													<i class="fa fa-pencil"></i> Edit
+												</button>
+												<button class="btn btn-success btn-xs"
+													onclick="location.href='${baseUrl}/environmentDetails/${environment.id}';">
+													<i class="fa fa-info "></i> Details
+												</button>
+												<button class="btn btn-info btn-xs" onclick="share(${environment.id})">
+													<i class="fa fa-share-alt "></i> Share
+												</button>
+												<button class="btn btn-danger btn-xs"
+													onclick="location.href='${baseUrl}/deleteEnvironmentById/${environment.id}';" disabled="true">
+													<i class="fa fa-trash-o "></i> Delete
 												</button>
 											</td>
 										</tr>
@@ -157,13 +261,13 @@
     	}
     	
 		function getBody(data){
-			var body = 'The Smoke Conventional Application is up and running with Revision #  ' + data.revisionNumber +'.\n\n' ;
+			var body = 'The '+ data.envName + ' Application is up and running with Revision #  ' + data.revisionNumber +'.\n\n' ;
 			body += 'Environment Name : ' + data.envName + '\n';
 			body += 'Environment Location : http://' + data.envUrl + '/app/auth/login\n';
 			body += 'Revision Number : ' + data.revisionNumber + '\n\n\n\n';
 			body += 'Log Host : ' + data.envLogUrl + '\n';
 			body += 'Log User Name : ' + data.envLogUser + '\n';
-			body += 'Log Password : ' + data.envUrl + '\n';
+			body += 'Log Password : ' + data.envLogPass + '\n';
 			body += 'Application Log Path : ' + data.envLog + '\n';
 			body += 'WAR Location : ' + data.envWar + '\n';
 			body += 'Server Logs : ' + data.envServerLog + '\n\n\n\n';
@@ -171,8 +275,8 @@
 			body += 'DataBase User Name : ' + data.dbUser + '\n';
 			body += 'DataBase Password : ' + data.dbPass + '\n';
 			body += 'Schema Name : ' + data.dbSchema + '\n\n\n';
-			body += 'Find UpDated Details : ${baseUrl}/environmentDetails/' + data.id + '\n';
-			body += 'Find All Environment Details : ${baseUrl}/showAll';
+			//body += 'Find UpDated Details : ${baseUrl}/environmentDetails/' + data.key + '\n';
+			//body += 'Find All Environment Details : ${baseUrl}/showAll';
 			return encodeURI(body);
 			
 		}

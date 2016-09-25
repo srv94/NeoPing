@@ -15,15 +15,17 @@ public class PingResult {
     @Column int keyId;
     @Column boolean result;
     @Column Timestamp timestamp;
+    @Column String envType;
     public PingResult() {
         super();
         // TODO Auto-generated constructor stub
     }
-    public PingResult(int i, boolean result, Timestamp timestamp) {
+    public PingResult(int i, boolean result, Timestamp timestamp,String envType) {
         super();
         this.keyId = i;
         this.result = result;
         this.timestamp = timestamp;
+        this.envType = envType;
     }
     public int getKeyid() {
         return keyId;
@@ -43,5 +45,12 @@ public class PingResult {
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
+	public String getEnvType() {
+		return envType;
+	}
+	public void setEnvType(String envType) {
+		this.envType = envType;
+	}
+    
 
 }

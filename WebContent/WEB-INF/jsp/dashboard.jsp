@@ -3,7 +3,6 @@
 <html lang="en">
 
 <%@include file="head.jsp"%>
-
 <body>
 
 	<section id="container">
@@ -33,31 +32,31 @@
 						<div class="row mtbox">
 							<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
 								<div class="box1">
-									<span class="li_heart"></span>
-									<h3>933</h3>
+									<span class="li_news"></span>
+									<h3>&darr; ${TotalDown}</h3>
 								</div>
-								<p>933 People liked your page the last 24hs. Whoohoo!</p>
-							</div>
-							<div class="col-md-2 col-sm-2 box0">
-								<div class="box1">
-									<span class="li_cloud"></span>
-									<h3>+48</h3>
-								</div>
-								<p>48 New files were added in your cloud storage.</p>
-							</div>
-							<div class="col-md-2 col-sm-2 box0">
-								<div class="box1">
-									<span class="li_stack"></span>
-									<h3>23</h3>
-								</div>
-								<p>You have 23 unread messages in your inbox.</p>
+								<p>${TotalDown } out of ${Total} environment are down.</p>
 							</div>
 							<div class="col-md-2 col-sm-2 box0">
 								<div class="box1">
 									<span class="li_news"></span>
-									<h3>+10</h3>
+									<h3>&darr; ${DownCAS }</h3>
 								</div>
-								<p>More than 10 news were added in your reader.</p>
+								<p>${DownCAS} out of ${TotalCAS} CAS environment are down.</p>
+							</div>
+							<div class="col-md-2 col-sm-2 box0">
+								<div class="box1">
+									<span class="li_news"></span>
+									<h3>&darr; ${DownLMS }</h3>
+								</div>
+								<p>${DownLMS} out of ${TotalLMS} LMS environment are down.</p>
+							</div>
+							<div class="col-md-2 col-sm-2 box0">
+								<div class="box1">
+									<span class="li_news"></span>
+									<h3>&darr; ${DownINT }</h3>
+								</div>
+								<p>${DownINT} out of ${TotalINT} Integration environment are down.</p>
 							</div>
 							<div class="col-md-2 col-sm-2 box0">
 								<div class="box1">
@@ -76,22 +75,24 @@
 							<div class="col-md-4 col-sm-4 mb">
 								<div class="white-panel pn donut-chart">
 									<div class="white-header">
-										<h5>SERVER LOAD</h5>
+										<h5>Environment Status</h5>
 									</div>
 									<div class="row">
 										<div class="col-sm-6 col-xs-6 goleft">
 											<p>
-												<i class="fa fa-database"></i> 70%
+												<i class="fa fa-database" id = "statusPer"></i>
 											</p>
 										</div>
 									</div>
 									<canvas id="serverstatus01" height="120" width="120"></canvas>
 									<script>
+									var down = '${TotalDown}';
+									var total = '${Total}';
 										var doughnutData = [ {
-											value : 70,
+											value : (100 - (parseFloat(down)*100)/parseFloat(total)),
 											color : "#68dff0"
 										}, {
-											value : 30,
+											value : (parseFloat(down)*100)/parseFloat(total),
 											color : "#fdfdfd"
 										} ];
 										var myDoughnut = new Chart(document
@@ -114,7 +115,7 @@
 									<div class="row">
 										<div class="col-sm-6 col-xs-6 goleft">
 											<p>
-												<i class="fa fa-heart"></i> 122
+												<i class="fa fa-heart"></i> CAS
 											</p>
 										</div>
 										<div class="col-sm-6 col-xs-6"></div>
@@ -138,16 +139,16 @@
 											class="img-circle" width="80">
 									</p>
 									<p>
-										<b>Zac Snider</b>
+										<b>Saurabh Verma</b>
 									</p>
 									<div class="row">
 										<div class="col-md-6">
 											<p class="small mt">MEMBER SINCE</p>
-											<p>2012</p>
+											<p>2016</p>
 										</div>
 										<div class="col-md-6">
-											<p class="small mt">TOTAL SPEND</p>
-											<p>$ 47,60</p>
+											<p class="small mt">TOTAL Feature</p>
+											<p>3</p>
 										</div>
 									</div>
 								</div>
@@ -240,7 +241,113 @@
 						<div class="row mt">
 							<!--CUSTOM CHART START -->
 							<div class="border-head">
-								<h3>VISITS</h3>
+								<h3>CAS Issues</h3>
+							</div>
+							<div class="custom-bar-chart">
+								<ul class="y-axis">
+									<li><span>10.000</span></li>
+									<li><span>8.000</span></li>
+									<li><span>6.000</span></li>
+									<li><span>4.000</span></li>
+									<li><span>2.000</span></li>
+									<li><span>0</span></li>
+								</ul>
+								<div class="bar">
+									<div class="title">JAN</div>
+									<div class="value tooltips" data-original-title="8.500"
+										data-toggle="tooltip" data-placement="top">85%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">FEB</div>
+									<div class="value tooltips" data-original-title="5.000"
+										data-toggle="tooltip" data-placement="top">50%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">MAR</div>
+									<div class="value tooltips" data-original-title="6.000"
+										data-toggle="tooltip" data-placement="top">60%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">APR</div>
+									<div class="value tooltips" data-original-title="4.500"
+										data-toggle="tooltip" data-placement="top">45%</div>
+								</div>
+								<div class="bar">
+									<div class="title">MAY</div>
+									<div class="value tooltips" data-original-title="3.200"
+										data-toggle="tooltip" data-placement="top">32%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">JUN</div>
+									<div class="value tooltips" data-original-title="6.200"
+										data-toggle="tooltip" data-placement="top">62%</div>
+								</div>
+								<div class="bar">
+									<div class="title">JUL</div>
+									<div class="value tooltips" data-original-title="7.500"
+										data-toggle="tooltip" data-placement="top">75%</div>
+								</div>
+							</div>
+							<!--custom chart end-->
+						</div>
+						<!-- /row -->
+						<div class="row mt">
+							<!--CUSTOM CHART START -->
+							<div class="border-head">
+								<h3>LMS Issues</h3>
+							</div>
+							<div class="custom-bar-chart">
+								<ul class="y-axis">
+									<li><span>10.000</span></li>
+									<li><span>8.000</span></li>
+									<li><span>6.000</span></li>
+									<li><span>4.000</span></li>
+									<li><span>2.000</span></li>
+									<li><span>0</span></li>
+								</ul>
+								<div class="bar">
+									<div class="title">JAN</div>
+									<div class="value tooltips" data-original-title="8.500"
+										data-toggle="tooltip" data-placement="top">85%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">FEB</div>
+									<div class="value tooltips" data-original-title="5.000"
+										data-toggle="tooltip" data-placement="top">50%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">MAR</div>
+									<div class="value tooltips" data-original-title="6.000"
+										data-toggle="tooltip" data-placement="top">60%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">APR</div>
+									<div class="value tooltips" data-original-title="4.500"
+										data-toggle="tooltip" data-placement="top">45%</div>
+								</div>
+								<div class="bar">
+									<div class="title">MAY</div>
+									<div class="value tooltips" data-original-title="3.200"
+										data-toggle="tooltip" data-placement="top">32%</div>
+								</div>
+								<div class="bar ">
+									<div class="title">JUN</div>
+									<div class="value tooltips" data-original-title="6.200"
+										data-toggle="tooltip" data-placement="top">62%</div>
+								</div>
+								<div class="bar">
+									<div class="title">JUL</div>
+									<div class="value tooltips" data-original-title="7.500"
+										data-toggle="tooltip" data-placement="top">75%</div>
+								</div>
+							</div>
+							<!--custom chart end-->
+						</div>
+						<!-- /row -->
+						<div class="row mt">
+							<!--CUSTOM CHART START -->
+							<div class="border-head">
+								<h3>Integration Issues</h3>
 							</div>
 							<div class="custom-bar-chart">
 								<ul class="y-axis">
@@ -374,13 +481,13 @@
 						<div class="desc">
 							<div class="thumb">
 								<img class="img-circle"
-									src="<c:url value="/assets/img/ui-divya.jpg" />" width="35px"
+									src="<c:url value="/assets/img/ui-zac.jpg" />" width="35px"
 									height="35px" align="">
 							</div>
 							<div class="details">
 								<p>
-									<a href="#">DIVYA MANIAN</a><br />
-									<muted>Available</muted>
+									<a href="#">Saurabh Verma</a><br />
+									<muted>Developer</muted>
 								</p>
 							</div>
 						</div>
@@ -388,17 +495,17 @@
 						<div class="desc">
 							<div class="thumb">
 								<img class="img-circle"
-									src="<c:url value="/assets/img/ui-sherman.jpg" />" width="35px"
+									src="<c:url value="/assets/img/ui-zac.jpg" />" width="35px"
 									height="35px" align="">
 							</div>
 							<div class="details">
 								<p>
-									<a href="#">DJ SHERMAN</a><br />
-									<muted>I am Busy</muted>
+									<a href="#">Narendra Mathuriya</a><br />
+									<muted>Deployment</muted>
 								</p>
 							</div>
 						</div>
-						<!-- Third Member -->
+						<%-- <!-- Third Member -->
 						<div class="desc">
 							<div class="thumb">
 								<img class="img-circle"
@@ -440,7 +547,7 @@
 								</p>
 							</div>
 						</div>
-
+ --%>
 						<!-- CALENDAR-->
 						<div id="calendar" class="mb">
 							<div class="panel green-panel no-margin">
@@ -494,7 +601,10 @@
 	</script>
 
 	<script type="application/javascript">
-		
+		var down;
+		var total;
+		var upPer;
+		var downPer;
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
             $("#date-popover").hide();
@@ -518,6 +628,10 @@
                     {type: "block", label: "Regular event", }
                 ]
             });
+            down = '${TotalDown}';
+    		total = '${Total}';
+    		upPer = (100 - (parseFloat(down)*100)/parseFloat(total));
+    		$('#statusPer').html('  ' + Math.round(upPer * 100) / 100+' %');
         });
         
         

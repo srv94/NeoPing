@@ -73,10 +73,35 @@
 								<div class="form-group">
 									<label class="col-sm-2 col-sm-2 control-label">Revision
 										Number</label>
-									<div class="col-sm-10">
+									<div class="col-sm-8">
 										<form:input path="revisionNumber"
 											placeholder="Enter Current Revision Number" type="text"
 											class="form-control" />
+									</div>
+									<div class="col-sm-2">
+										<button type="button"
+											class="btn btn-info btn-default btn-block" id="getEnvDetails"
+											onclick="getBuildDetails();">Get Details</button>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-2 col-sm-2 control-label">Build
+										Number</label>
+									<div class="col-lg-10">
+										<p id="StaBuildNumber" class="form-control-static"></p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-2 col-sm-2 control-label">Job Name</label>
+									<div class="col-lg-10">
+										<p id="staJobName" class="form-control-static"></p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-2 col-sm-2 control-label">Creation
+										Time</label>
+									<div class="col-lg-10">
+										<p id="staCreateTime" class="form-control-static"></p>
 									</div>
 								</div>
 								<div class="form-group">
@@ -220,6 +245,13 @@
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
             $("#date-popover").hide();
@@ -253,7 +285,32 @@
             var to = $("#" + id).data("to");
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
+        
+        function getBuildDetails(){
+        	var user = $('#envLogUser').val();
+        	var password = $('#envLogPass').val();
+        	var host = $('#envLogUrl').val();
+        	var remotePath = $('#envWar').val();
+        	$.ajax({
+  			  url: "${baseUrl}/api/buildDetials",
+  			  data : "user="+user+"&password="+password+"&host="+host+"&remotePath="+remotePath,
+  			  success: function(data){
+  			    $('#revisionNumber').val(data[0]);
+  			 	$('#StaBuildNumber').html(data[1]);
+  				$('#staJobName').html(data[2]);
+  				$('#staCreateTime').html(data[3]);
+  			    
+  			  }
+  			});
+        }
     
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

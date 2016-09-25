@@ -21,6 +21,10 @@
 				href="${baseUrl}/create"> <i class="fa fa-desktop"></i> <span>Add
 						Environment</span>
 			</a></li>
+			<li id="create_patch_sidebar" class="sub-menu"><a
+				href="${baseUrl}/patch/create"> <i class="fa fa-desktop"></i> <span>Create
+						Patch</span>
+			</a></li>
 			<!-- <li class="sub-menu"><a href="javascript:;"> <i
 					class="fa fa-book"></i> <span>Extra Pages</span>
 			</a>

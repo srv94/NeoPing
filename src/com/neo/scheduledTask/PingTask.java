@@ -22,7 +22,7 @@ public class PingTask {
     @Autowired
     PingResultDAO pingResultDao;
     
-    @Scheduled(fixedDelay = 60000)
+    //@Scheduled(fixedDelay = 60000)
     public void checkUrlStaus()
     {
         java.util.Date date= new java.util.Date();
@@ -30,6 +30,7 @@ public class PingTask {
         pingResultDao.deleteOldResult();
         for(EnvironmentDTO environmentDTO : environmentService.getAllEnvironment()){
             PingResultDTO resultDTO = new PingResultDTO(environmentDTO.getId(),time);
+            resultDTO.setEnvType(environmentDTO.getEnvironmentType());
             resultDTO.setResult(PingUtil.checkUrl("http://"+environmentDTO.getEnvUrl()+"/app/auth/getCaptcha?1465279781280"));
             pingResultDao.saveResult(resultDTO);
         }

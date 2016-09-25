@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.neo.dto.EnvironmentDTO;
 import com.neo.dto.PingResult;
 import com.neo.dto.PingResultDTO;
 
@@ -43,7 +42,7 @@ public class PingResultDAOService implements PingResultDAO{
     @Override
     public int saveResult(PingResultDTO pingResultDTO) {
     	sessionFactory.getCurrentSession().save(pingResultDTO);
-    	sessionFactory.getCurrentSession().save(new PingResult(pingResultDTO.getKeyid(),pingResultDTO.getResult(),pingResultDTO.getTimestamp()));
+    	sessionFactory.getCurrentSession().save(new PingResult(pingResultDTO.getKeyid(),pingResultDTO.getResult(),pingResultDTO.getTimestamp(),pingResultDTO.getEnvType()));
         return (Integer) sessionFactory.getCurrentSession().save(pingResultDTO);
     }
 
